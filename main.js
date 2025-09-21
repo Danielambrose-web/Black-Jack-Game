@@ -14,6 +14,7 @@ messageEl = document.getElementById('message-el')
 //sumEl=document.getElementById('sum-el')
 sumEl = document.querySelector('#sum-el')
 cardsEl = document.querySelector('#card-el')
+sumel = document.querySelector('#sum-el')
 
 function startGame() {
     game__init__()
@@ -45,7 +46,7 @@ function newCard() {
     game__init__()
     cards.push(thirdCard)
 
-    window.alert(cards +' and'+cards.length)
+    //window.alert(cards +' and'+cards.length)
    
 }
 
@@ -53,7 +54,9 @@ function newCard() {
 function reset() {
     sumEl.textContent = "sum:" + '' + 0
     cardsEl.textContent = 'cards:' + '' + 0
+    sumel.textContent = 'sum:' + ' ' + 0
 }
+
 /*
 
 let x = 20
