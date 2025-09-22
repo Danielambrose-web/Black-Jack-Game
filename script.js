@@ -27,13 +27,23 @@ function getFastestRaceTime(){
     let fstestRaceTime = getFastestRaceTime();
     console.log(fstestRaceTime);*/
 
-   /* racer1Time = 102;
-    racer2Time = 107;
-    racer3Time = 101;   
+/* racer1Time = 102;
+ racer2Time = 107;
+ racer3Time = 101;   
 
-    function racersTotalTime(){
-        return racer1Time + racer2Time + racer3Time;
-    }
+ function racersTotalTime(){
+     return racer1Time + racer2Time + racer3Time;
+ }
 
-    let totalTime = racersTotalTime();
-    console.log(totalTime);*/
+ let totalTime = racersTotalTime();
+ console.log(totalTime);
+let free = []
+
+let ranDom = Math.random()
+console.log(ranDom)
+let geneR = ranDom
+free.push(geneR)
+console.log(free)*/
+
+let randomNumber =Math.floor(Math.random()*6.1) +1
+console.log(randomNumber)
