@@ -43,7 +43,68 @@ let ranDom = Math.random()
 console.log(ranDom)
 let geneR = ranDom
 free.push(geneR)
-console.log(free)*/
+console.log(free)
 
 let randomNumber =Math.floor(Math.random()*6.1) +1
 console.log(randomNumber)
+
+let daniel = 'come' 
+let same = 'global'
+
+if (daniel === 'come' && same|| 'gloal'){
+       console.log('so & WORKED')
+}
+
+
+let castle = {
+    location: 'Germany',
+    squareMeters: 3000,
+    isPainted: true,
+    numberOfTowers: 5,  
+    owners:['daniel', 'maria', 'sara'],
+    call(){
+        return 'castle is  located'// +' 'castle.location
+    }
+}
+
+console.log(castle.location)
+console.log(castle['numberOfTowers'])  
+console.log(castle.owners[1] +' '+ castle.owners[0])
+
+console.log(castle.call())
+
+let player = {
+    name: 'daniel',
+    age :20,
+    country : 'nigeria',
+    logData(){
+    return player.name + ' is ' + player.age + ' years old and lives in ' + player.country
+}
+}
+console.log(player.logData())*/
+playerEl = document.querySelector('#player-el')
+
+let input = document.getElementById('user-el')
+input.addEventListener('input', function () {
+    let age = Number(input.value);
+    checkAge(age)
+
+})
+
+
+function checkAge(age) {
+    if (age < 5) {
+        message = 'free'
+    } else if (age > 6 && age < 17) {
+        message = 'child discount'
+    } else if (age > 18 && age < 26) {
+        message = 'student discount'
+    } else if (age > 27 && age < 66) {
+        message = 'full price'
+    } else {
+        message = 'senior citizen price'
+    }
+
+
+    playerEl.textContent = message
+}
