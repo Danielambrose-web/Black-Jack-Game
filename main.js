@@ -1,19 +1,32 @@
-let firstCard = getrandomCard()
-let secondCard = getrandomCard()
+let player = {
+    name: 'daniel',
+    chips: 115
+}
 
-let cards = [firstCard, secondCard]
-let sum = firstCard + secondCard
+let cards = []
+let sum = 0
 
 let hashBlackJack = false
-let isAlive = true
+let isAlive = false
 
 let message = ""
 messageEl = document.getElementById('message-el')
 sumEl = document.querySelector('#sum-el')
 cardsEl = document.querySelector('#card-el')
 sumel = document.querySelector('#sum-el')
+playerEl = document.querySelector('#player-el')
+
+playerEl.textContent = player.name +':'+'#'+' '+ player.chips
+playerEl.style.color = "red"
 
 function startGame() {
+    let firstCard = getrandomCard()
+    let secondCard = getrandomCard()
+
+    let cards = [firstCard, secondCard]
+    let sum = firstCard + secondCard
+
+    isAlive = true
     game__init__()
 }
 
@@ -21,45 +34,51 @@ function getrandomCard() {
     let Gene = Math.floor(Math.random() * 13) + 1
     if (Gene == 1) {
         return 11
-    } else if (Gene == 11 
+    } else if (Gene == 11
         || Gene == 12
         || Gene == 13) {
         return 10
     }
-        else {
+    else {
         return Gene
-        }
+    }
+}
+
+function game__init__() {
+    cardsEl.textContent = 'cards:'
+
+
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " "
     }
 
-    function game__init__() {
-        cardsEl.textContent = 'cards:'
-
- 
-        for (let i = 0; i < cards.length; i++) {
-            cardsEl.textContent += cards[i] + " "
-        }
-
-        sumEl.textContent = 'sum:' + ' ' + sum
-        if (sum <= 20) {
-            message = 'do u want to draw a new card'
-        }
-        else if (sum === 21) {
-            message = 'woo u got a blackjack'
-            hashBlackJack = true
-        }
-        else if (sum > 21) {
-            message = ' u are out'
-            isAlive = false
-        }
-        messageEl.textContent = message
+    sumEl.textContent = 'sum:' + ' ' + sum
+    if (sum <= 20) {
+        message = 'do u want to draw a new card'
     }
+    else if (sum === 21) {
+        message = 'woo u got a blackjack'
+        hashBlackJack = true
+    }
+    else if (sum > 21) {
+        message = ' u are out'
+        isAlive = false
+    }
+    messageEl.textContent = message
+}
 
-    function newCard() {
+function newCard() {
+    if (isAlive == true && hashBlackJack===false ){
         let thirdCard = getrandomCard()
         sum += thirdCard
         cards.push(thirdCard)
         game__init__()
+    }else{
 
-        //window.alert(cards +' and'+cards.length)
-
+        message = ' u are out'
     }
+
+
+    //window.alert(cards +' and'+cards.length)
+
+}
